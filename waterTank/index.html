@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Tank</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Water Tank</h1>
+
+        <div class="input-row">
+            <label for="heights-input">Block Heights</label>
+            <input type="text" id="heights-input" placeholder="e.g. 0,4,0,0,0,6,0,6,4,0" value="0,4,0,0,0,6,0,6,4,0" />
+            <button id="compute-btn">Go</button>
+        </div>
+
+        <p id="error-msg" class="error hidden"></p>
+
+        <div id="result" class="hidden">
+            <p class="output-label">Water trapped: <strong id="water-count">0</strong> Units</p>
+            <svg id="tank-svg"></svg>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
