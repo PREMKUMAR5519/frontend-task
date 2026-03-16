@@ -1,0 +1,134 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.task-card__wrapper {
+  min-height: 100%;
+}
+
+.task-card__wrapper--dragging {
+  z-index: 1;
+}
+
+.task-card {
+  transition: box-shadow $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    border-color: $color-primary-100;
+  }
+}
+
+.task-card--dragging-placeholder {
+  opacity: 0.12;
+  box-shadow: none;
+  border-color: $color-primary-300;
+  pointer-events: none;
+}
+
+.task-card--overlay {
+  box-shadow: $shadow-lg;
+  border-color: $color-primary-300;
+}
+
+.task-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $space-2;
+  margin-bottom: $space-2;
+}
+
+.task-card__header-main {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-2;
+  min-width: 0;
+}
+
+.task-card__drag-handle {
+  display: grid;
+  grid-template-columns: repeat(2, 4px);
+  gap: 3px;
+  flex: 0 0 auto;
+  padding: $space-1;
+  margin: -2px 0 0 -2px;
+  border: 0;
+  border-radius: $radius-sm;
+  background: transparent;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &:hover {
+    background: rgba($color-primary-50, 0.85);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.task-card__drag-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: $radius-full;
+  background: $color-gray-400;
+}
+
+.task-card__title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray-800;
+  line-height: 1.4;
+  min-width: 0;
+}
+
+.task-card__assignee {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  margin-bottom: $space-2;
+}
+
+.task-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  margin-bottom: $space-3;
+}
+
+.task-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  padding-top: $space-2;
+  border-top: 1px solid $color-gray-100;
+}
+
+.task-card__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.task-card__time {
+  font-size: $font-size-xs;
+  color: $color-gray-400;
+}
+
+.task-card__status-select {
+  font-size: $font-size-xs;
+  padding: $space-1 $space-2;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: $color-white;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}

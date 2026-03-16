@@ -1,0 +1,57 @@
+@use '../../../../styles/variables' as *;
+
+.task-board-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space-8 $space-6;
+}
+
+.task-board-page__storage-notice {
+  margin: 0 0 $space-4;
+  padding: $space-3 $space-4;
+  border: 1px solid $color-red-500;
+  border-radius: $radius-md;
+  background: $color-red-50;
+  color: $color-red-600;
+  font-size: $font-size-sm;
+}
+
+.task-board-page__empty-state {
+  text-align: center;
+  padding: $space-8 * 2 $space-4;
+  border: 1px dashed $color-border;
+  border-radius: 16px;
+  background: rgba($color-white, 0.58);
+}
+
+.task-board-page__error-state {
+  text-align: center;
+  padding: $space-8 * 2 $space-4;
+  border: 1px solid rgba($color-red-500, 0.28);
+  border-radius: 16px;
+  background: rgba($color-white, 0.7);
+}
+
+.task-board-page__empty-text {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-gray-600;
+  margin-bottom: $space-2;
+}
+
+.task-board-page__error-text {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-red-600;
+  margin-bottom: $space-2;
+}
+
+.task-board-page__empty-hint {
+  font-size: $font-size-sm;
+  color: $color-gray-400;
+}
+
+.task-board-page__error-hint {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+}

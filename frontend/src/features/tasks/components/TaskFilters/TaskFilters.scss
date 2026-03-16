@@ -1,0 +1,117 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.task-filters {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-6;
+  padding: $space-4 $space-5;
+}
+
+.task-filters__row {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+  flex-wrap: wrap;
+}
+
+.task-filters__group {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.task-filters__label {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.task-filters__chips {
+  display: flex;
+  gap: $space-1;
+}
+
+.task-filters__chip {
+  padding: $space-1 $space-3;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  background: $color-white;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-gray-300;
+    color: $color-text;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.task-filters__chip--active {
+  background: $color-primary-50;
+  border-color: $color-primary-300;
+  color: $color-primary;
+}
+
+.task-filters__select {
+  padding: $space-1 $space-3;
+  font-size: $font-size-xs;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+  color: $color-text-secondary;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+.task-filters__sort-group {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  padding: 3px;
+  border: 1px solid rgba($color-gray-200, 0.9);
+  border-radius: 999px;
+  background: rgba($color-bg, 0.92);
+}
+
+.task-filters__sort-button {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-1 $space-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: $radius-full;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-text;
+    background: $color-gray-100;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.task-filters__sort-button--active {
+  color: $color-primary;
+  background: $color-primary-50;
+  border-color: $color-primary-100;
+}

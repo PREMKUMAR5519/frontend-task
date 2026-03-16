@@ -1,0 +1,31 @@
+@use '../../../../styles/variables' as *;
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.task-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+}
+
+.task-form__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $space-4;
+  border-top: 1px solid $color-gray-100;
+}
+
+.task-form__left-actions {
+  display: flex;
+  gap: $space-2;
+}
+
+.task-form__right-actions {
+  display: flex;
+  gap: $space-2;
+}
