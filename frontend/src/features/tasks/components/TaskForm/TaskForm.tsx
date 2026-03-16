@@ -108,7 +108,7 @@ export function TaskForm({ task, onSubmit, onCancel, onDelete, onDirtyChange }: 
           label="Status"
           options={statusOptions}
           value={form.status}
-          onChange={(e) => handleChange('status', e.target.value)}
+          onChange={(value) => handleChange('status', value)}
           error={errors.status}
         />
 
@@ -116,7 +116,7 @@ export function TaskForm({ task, onSubmit, onCancel, onDelete, onDirtyChange }: 
           label="Priority"
           options={priorityOptions}
           value={form.priority}
-          onChange={(e) => handleChange('priority', e.target.value)}
+          onChange={(value) => handleChange('priority', value)}
           error={errors.priority}
         />
       </div>

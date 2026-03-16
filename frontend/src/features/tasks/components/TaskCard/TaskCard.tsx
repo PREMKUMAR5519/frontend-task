@@ -3,7 +3,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { useDraggable } from '@dnd-kit/core';
 import type { Task, TaskStatus } from '../../types';
 import { STATUS_LABELS, STATUSES } from '../../types';
-import { Badge, Button, Card } from '../../../../components/ui';
+import { Badge, Button, Card, Select } from '../../../../components/ui';
 import './TaskCard.scss';
 
 interface TaskCardProps {
@@ -101,24 +101,19 @@ function TaskCardContent({
             Edit
           </Button>
 
-          <select
-            className="task-card__status-select"
-            value={task.status}
-            onChange={(e) => {
-              e.stopPropagation();
-              onStatusChange(task.id, e.target.value as TaskStatus);
-            }}
+          <div
             onClick={(e) => e.stopPropagation()}
             onPointerDown={(e) => e.stopPropagation()}
-            aria-label={`Change status for ${task.title}`}
-            disabled={controlsDisabled}
           >
-            {STATUSES.map((statusOption) => (
-              <option key={statusOption} value={statusOption}>
-                {STATUS_LABELS[statusOption]}
-              </option>
-            ))}
-          </select>
+            <Select
+              label=""
+              className="task-card__status-select"
+              options={STATUSES.map((s) => ({ value: s, label: STATUS_LABELS[s] }))}
+              value={task.status}
+              onChange={(value) => onStatusChange(task.id, value as TaskStatus)}
+              disabled={controlsDisabled}
+            />
+          </div>
         </div>
       </div>
     </Card>

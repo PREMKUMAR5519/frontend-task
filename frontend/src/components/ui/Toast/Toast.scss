@@ -1,0 +1,65 @@
+@use '../../../styles/variables' as *;
+
+.ui-toast-container {
+  position: fixed;
+  bottom: $space-6;
+  right: $space-6;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.ui-toast {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  box-shadow: $shadow-md;
+  animation: slideIn 200ms ease;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.ui-toast--info {
+  background: $color-gray-800;
+  color: $color-white;
+}
+
+.ui-toast--success {
+  background: $color-green-600;
+  color: $color-white;
+}
+
+.ui-toast--error {
+  background: $color-red-600;
+  color: $color-white;
+}
+
+.ui-toast__dismiss {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: inherit;
+  opacity: 0.7;
+  font-size: 1.1rem;
+  padding: 0 $space-1;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

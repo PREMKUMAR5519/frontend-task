@@ -1,6 +1,6 @@
 import type { TaskFilters as Filters, TaskStatus, TaskPriority, TaskSort, SortField } from '../../types';
 import { STATUS_LABELS, STATUSES, PRIORITIES, PRIORITY_LABELS } from '../../types';
-import { Button } from '../../../../components/ui';
+import { Button, Select } from '../../../../components/ui';
 import './TaskFilters.scss';
 
 interface TaskFiltersProps {
@@ -53,20 +53,14 @@ export function TaskFilters({
         </div>
 
         <div className="task-filters__group">
-          <span className="task-filters__label">Priority</span>
-          <select
-            className="task-filters__select"
+          <Select
+            label="Priority"
+            options={PRIORITIES.map((p) => ({ value: p, label: PRIORITY_LABELS[p] }))}
             value={filters.priority}
-            onChange={(e) => onFilterChange({ priority: e.target.value as TaskPriority | '' })}
-            aria-label="Filter by priority"
-          >
-            <option value="">All</option>
-            {PRIORITIES.map((priority) => (
-              <option key={priority} value={priority}>
-                {PRIORITY_LABELS[priority]}
-              </option>
-            ))}
-          </select>
+            onChange={(value) => onFilterChange({ priority: value as TaskPriority | '' })}
+            placeholder="All"
+            className="task-filters__priority-select"
+          />
         </div>
 
         <div className="task-filters__group">

@@ -1,0 +1,120 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.select-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.select-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-gray-700;
+}
+
+.select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  width: 100%;
+  padding: $space-2 $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  font-family: $font-family;
+  color: $color-text;
+  background: $color-white;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover:not(:disabled) {
+    border-color: $color-gray-400;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &--open {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.14);
+  }
+
+  &--error {
+    border-color: $color-danger;
+  }
+
+  &:disabled {
+    background: $color-gray-50;
+    color: $color-gray-400;
+    cursor: not-allowed;
+  }
+}
+
+.select-trigger__chevron {
+  flex-shrink: 0;
+  color: $color-gray-400;
+  transition: transform $transition-base, color $transition-fast;
+
+  .select-trigger--open & {
+    transform: rotate(180deg);
+    color: $color-primary;
+  }
+}
+
+.select-dropdown {
+  position: fixed;
+  width: max-content;
+  z-index: 9999;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.06);
+  animation: dropdown-appear 130ms ease;
+}
+
+@keyframes dropdown-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.select-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  font-size: $font-size-sm;
+  color: $color-text;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-gray-50;
+  }
+
+  &--active {
+    color: $color-gray-400;
+
+    svg {
+      color: $color-primary;
+    }
+  }
+}
+
+.select-error {
+  font-size: $font-size-xs;
+  color: $color-danger;
+}

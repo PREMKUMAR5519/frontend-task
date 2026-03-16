@@ -1,0 +1,10 @@
+@use '../../../styles/variables' as *;
+
+.ui-card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: $space-4;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-fast, border-color $transition-fast;
+}

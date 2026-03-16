@@ -1,0 +1,77 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font-weight: $font-weight-medium;
+  transition: background-color $transition-fast, border-color $transition-fast, box-shadow $transition-fast;
+  cursor: pointer;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.ui-button--sm {
+  padding: $space-1 $space-3;
+  font-size: $font-size-sm;
+}
+
+.ui-button--md {
+  padding: $space-2 $space-4;
+  font-size: $font-size-sm;
+}
+
+.ui-button--lg {
+  padding: $space-3 $space-5;
+  font-size: $font-size-base;
+}
+
+.ui-button--primary {
+  background-color: $color-primary;
+  color: $color-white;
+  box-shadow: 0 10px 18px rgba($color-primary, 0.14);
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-hover;
+  }
+}
+
+.ui-button--secondary {
+  background-color: rgba($color-white, 0.8);
+  color: $color-text;
+  border-color: $color-border;
+
+  &:hover:not(:disabled) {
+    background-color: $color-gray-50;
+  }
+}
+
+.ui-button--ghost {
+  background-color: transparent;
+  color: $color-text-secondary;
+
+  &:hover:not(:disabled) {
+    background-color: $color-gray-100;
+    color: $color-text;
+  }
+}
+
+.ui-button--destructive {
+  background-color: $color-red-500;
+  color: $color-white;
+
+  &:hover:not(:disabled) {
+    background-color: $color-red-600;
+  }
+}
